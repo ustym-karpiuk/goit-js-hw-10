@@ -43,22 +43,21 @@ function makeInfoCat() {
   fetchCatByBreed(catBreed.value)
     .then(data => {
       if (data.length === 0) {
+        loadingMessage.style.display = 'none'; 
         return Notiflix.Notify.warning(
           'Sorry, nothing was found for the breed'
         );
       }
-      loadingMessage.style.display = 'none';
+      loadingMessage.style.display = 'none'; 
       catInfo.style.display = 'block';
       showCatInfo(data[0]);
     })
     .catch(() => {
-      errorMessage.style.display = 'none';
+      loadingMessage.style.display = 'none'; 
+      errorMessage.style.display = 'none'; 
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );
-    })
-    .finally(() => {
-      loadingMessage.style.display = 'none';
     });
 }
 
