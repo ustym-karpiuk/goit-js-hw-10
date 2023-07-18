@@ -28,7 +28,11 @@ function makeSelect() {
     .catch(() => {
       errorMessage.style.display = 'block';
       console.log(errorMessage);
+    })
+  .finally(() => {
+      loadingMessage.style.display = 'none';
     });
+  
 }
 
 makeSelect();
@@ -48,10 +52,13 @@ function makeInfoCat() {
       showCatInfo(data[0]);
     })
     .catch(() => {
-      errorMessage.style.display = 'none ';
+      errorMessage.style.display = 'none';
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );
+    })
+    .finally(() => {
+      loadingMessage.style.display = 'none';
     });
 }
 
