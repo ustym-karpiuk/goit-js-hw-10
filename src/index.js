@@ -27,6 +27,7 @@ function makeSelect() {
     })
     .catch(() => {
       errorMessage.style.display = 'block';
+      loadingMessage.style.display = 'none';
       console.log(errorMessage);
     });
 }
