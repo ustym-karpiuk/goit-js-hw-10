@@ -26,12 +26,12 @@ function makeSelect() {
         .join('');
     })
     .catch(() => {
-      loadingMessage.style.display = 'none';
       errorMessage.style.display = 'block';
       console.log(errorMessage);
     });
 }
 
+makeSelect();
 
 function makeInfoCat() {
   catInfo.style.display = 'none';
