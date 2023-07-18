@@ -21,18 +21,20 @@ function makeSelect() {
   fetchBreeds()
     .then(data => {
       loadingMessage.style.display = 'none';
+
       catBreed.innerHTML = data
         .map(({ name, id }) => `<option value="${id}">${name}</option>`)
         .join('');
     })
     .catch(() => {
       errorMessage.style.display = 'block';
-      loadingMessage.style.display = 'none';
       console.log(errorMessage);
     });
-}
 
-makeSelect();
+  catBreed.addEventListener('change', () => {
+    loadingMessage.style.display = 'none';
+  });
+}
 
 function makeInfoCat() {
   catInfo.style.display = 'none';
